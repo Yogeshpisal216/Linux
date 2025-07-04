@@ -1,0 +1,23 @@
+🔹 For Debian/Ubuntu (APT-based):
+1)On a machine with internet:
+
+*Create a folder for the packages:
+
+--> mkdir git-offline && cd git-offline
+
+2)Download Git and all dependencies:
+
+--> apt download git
+--> apt-get install --download-only git
+
+*Or use apt-rdepends to fetch dependencies recursively:
+
+--> sudo apt install apt-rdepends
+--> apt-rdepends git | grep -v "^ " | xargs apt-get download
+
+3)Copy the .deb files to a USB or external drive.
+
+4)On the offline machine, install with:
+
+--> sudo dpkg -i *.deb
+--> sudo apt-get install -f   # fix missing deps if needed

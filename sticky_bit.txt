@@ -1,0 +1,35 @@
+#Create users.
+
+-->sudo adduser yogesh
+-->sudo adduser nilesh
+
+#Create password.
+-->sudo groupadd linux
+
+#Add user in group.
+-->sudo usermod -aG linux yogesh
+-->sudo usermod -aG linux nilesh
+
+#Create directory.
+-->mkdir common
+
+#Assign group to this directory.
+
+-->chgrp linux common/
+
+#Check permmision of directory.
+-->ls -ld common/
+
+#Assign write permmision to group.  
+-->chmod g+w common/
+
+#Add sticky bit to directory.
+-->chmod o+t (1775) common
+
+-->sudo chmod g+s common/
+
+#Using sticky bit user are available in single group cannot delete another user file or directory.
+
+#This is used to create immutable file.
+-->sudo chattr +i file_name
+-->sudo chattr -i file_name #Remove

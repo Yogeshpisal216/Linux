@@ -1,0 +1,7 @@
+#How to check system info like Ram, Size, Partition (SSD,HDD) in linux.
+
+-->lsblk
+
+RO 
+1 = HDD
+0 = SSD

@@ -1,0 +1,31 @@
+#Two types of firewall.
+
+1)ufw  - it is by default available on Ubunutu.      
+
+#Configure UFW (Uncomplicated Firewall)
+
+--> sudo ufw enable
+
+--> sudo ufw disable
+
+--> sudo ufw status
+
+--> sudo ufw status verbose
+
+--> sudo ufw allow <service_name>
+
+--> sudo ufw allow port_no/tcp
+
+--> sudo ufw deny <port_no>
+
+2)firewalld - it is by default available on centos, redhat, fedora
+
+#Configure firewalld.
+
+--> sudo apt install firewalld -y
+
+--> sudo firewall-cmd --add-services=<service_name> --permanent
+
+--> sudo firewall-cmd --add-port=<port_no>/tcp --permanent
+
+--> sudo firewall-cmd --reload

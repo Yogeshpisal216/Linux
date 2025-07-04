@@ -1,0 +1,34 @@
+﻿#Check particular Files/Directory available in multiple Directory.
+
+#Before of deleting check the path using this.
+-->find /path/to/projects -type d -name "temp"
+---------------------------------------------------------------------------------------------------------------------------------
+
+#Delete particuler Directory available in multiple directory.
+-->find /path/to/projects -type d -name "temp" -exec rm -rf {} +
+
+*find /path/to/projects: Starts searching in the given directory.
+
+*-type d: Looks for directories.
+
+*-name "temp": Matches folders named temp.
+
+*-exec rm -rf {} +: Deletes each matched folder recursively and forcefully.
+---------------------------------------------------------------------------------------------------------------------------------
+
+#Before of deleting check the path using this.
+-->find /path/to/projects -type f \( -name "*.pem" -o -name "*.txt" \) -path "*/secrets/*"
+ 
+#Delete Perticuler files (eg - .pem, .txt, .mp4) available in multiple directory.
+-->find /path/to/projects -type f \( -name "*.pem" -o -name "*.txt" \) -path "*/secrets/*" -exec rm -v {} >> to_delete.log \;
+
+*/path/to/projects: Root directory where your project folders exist.
+
+*-type f: Only look for files.
+
+*\( -name "*.pem" -o -name "*.txt" \): Match both .pem and .txt files.
+
+*-path "*/secrets/*": Only target files within secrets subfolders.
+
+*-exec rm -v {} \;: Delete the matched files and show what was deleted (-v = verbose)
+---------------------------------------------------------------------------------------------------------------------------------

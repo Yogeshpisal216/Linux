@@ -1,0 +1,22 @@
+#Search services.
+--> systemctl list-units --type=service | grep <service_name> 
+
+--> systemctl list-units --type=service --all
+
+#Search installed services.
+--> systemctl | grep <service_name>
+
+#Find Running processes.
+*Using service name.
+
+--> ps aux | grep <service_name>
+
+*Using Port number.
+
+--> netstat -tulnp | grep <port_number>
+
+t = TCP
+u = UDP
+l = Listening ports
+n = Show numerical addresses
+p = Show process using the port

@@ -1,0 +1,36 @@
+#Change Port no of ssh service.
+
+*Install ssh and firewalld service.
+
+--> sudo apt install ssh -y 
+
+--> sudo apt install firewalld -y
+
+*Configure ssh and firewalld service.
+
+--> sudo cp /etc/ssh/sshd_config /etc/ssh/ssh_config_custom
+
+--> sudo nano /etc/ssh/sshd_config_custom
+   *uncomment and change port no 22 to custom.
+   
+   #22 --> 100
+   
+--> sudo /usr/sbin/sshd -f /etc/ssh/sshd_config_custom 
+   
+*Add port in firewall.
+    
+--> sudo ufw allow 100/tcp
+
+--> sudo firewall-cmd --add-port=100/tcp --permanent
+
+--> sudo firewall-cmd --reload
+
+*Take access throgh port.
+
+--> ssh username@ip_add -p <port_no> 100
+
+-------------------------------------------------------------------------
+
+#Copy public key of any server from client to server.
+
+->ssh-copy-id username@ip
